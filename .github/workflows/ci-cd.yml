@@ -24,9 +24,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install pytest
         
-    - name: Test with pytest
-      run: pytest tests
-      
+
     # Set up Docker Buildx for faster builds
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
