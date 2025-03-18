@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-recommender
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movie-recommender
+  template:
+    metadata:
+      labels:
+        app: movie-recommender
+    spec:
+      containers:
+      - name: movie-recommender
+        image: movie-recommender:latest  # Replace placeholder with simple image name
+        imagePullPolicy: IfNotPresent    # Add this line for local images
+        ports:
+        - containerPort: 8501
+        env:
+        - name: TMDB_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: movie-api-secrets
+              key: tmdb-api-key

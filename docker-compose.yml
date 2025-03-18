@@ -1,0 +1,11 @@
+version: '3'
+services:
+  movie-recommender:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - TMDB_API_KEY=${TMDB_API_KEY}
+    volumes:
+      - ./movie_list.pkl:/app/movie_list.pkl
+      - ./similarity.pkl:/app/similarity.pkl
