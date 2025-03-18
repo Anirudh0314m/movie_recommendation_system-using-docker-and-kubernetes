@@ -25,7 +25,7 @@ jobs:
         pip install pytest
         
     - name: Test with pytest
-      run: pytest
+      run: pytest tests
       
     # Set up Docker Buildx for faster builds
     - name: Set up Docker Buildx
